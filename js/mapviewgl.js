@@ -349,7 +349,7 @@ function drawcircleindicator(center, name="Beacon") {
 	var label = new Text2D(name, { align: textAlign.center,  font: '12px Arial', fillStyle: '#ABABAB', antialias: false });
 	var loader = new THREE.GLTFLoader();
 
-	loader.load("/assets/indicate.gltf", function(object) {
+	loader.load("assets/indicate.gltf", function(object) {
 		var model = object.scene;
 		scene.add(object.scene);
 		object.scene;
@@ -385,7 +385,7 @@ function drawcircleindicator(center, name="Beacon") {
 }
 
 
-function drawPlanet(name = "Unknown Planet", center, model = "/assets/planets/earth.gltf" ) {  // Load Main model
+function drawPlanet(name = "Unknown Planet", center, model = "assets/planets/earth.gltf" ) {  // Load Main model
 	var Text2D = THREE_Text.Text2D;
 	var SpriteText2D = THREE_Text.SpriteText2D;
 	var textAlign = THREE_Text.textAlign
@@ -422,7 +422,7 @@ function drawPlanet(name = "Unknown Planet", center, model = "/assets/planets/ea
 
 }
 
-function drawStar(name = "Unknown Star", center, model = "/assets/planets/sun.gltf" ) {  // Load Main model
+function drawStar(name = "Unknown Star", center, model = "assets/planets/sun.gltf" ) {  // Load Main model
 	var Text2D = THREE_Text.Text2D;
 	var SpriteText2D = THREE_Text.SpriteText2D;
 	var textAlign = THREE_Text.textAlign
@@ -466,7 +466,7 @@ function drawShip(center,name="PlayerShip",faction="Unknown") {  // oad Main mod
 	var loader = new THREE.GLTFLoader();
 	var shipGroup = new THREE.Group();
 	if (faction == "Unknown") { var randomNumber = Math.floor(Math.random() * 4);  faction = "Unknown_" + randomNumber; }
-	loader.load("/assets/" + faction +".gltf", function(object) {
+	loader.load("assets/" + faction +".gltf", function(object) {
 		var model = object.scene;
 		shipGroup.add(object.scene);
 		object.scene;
@@ -479,7 +479,7 @@ function drawShip(center,name="PlayerShip",faction="Unknown") {  // oad Main mod
 	function (xhr) { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); },
 	function ( error ) {console.log( 'An error happened: ' + error );}
 	);
-	loader.load("/assets/spincircle.gltf", function(object) { // Load spinning circle
+	loader.load("assets/spincircle.gltf", function(object) { // Load spinning circle
 		var model = object.scene;
 		shipGroup.add(object.scene);
 		object.scene;
