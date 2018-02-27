@@ -1,0 +1,166 @@
+{
+    "asset": {
+        "version": "1.0",
+        "generator": "Open Asset Import Library (assimp v4.1.0)"
+    },
+    "accessors": {
+        "Layer_0_mesh_accessor": {
+            "bufferView": "Layer_0_mesh_view",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 10242,
+            "type": "VEC3",
+            "max": [
+                7.900000095367432,
+                7.900000095367432,
+                7.900000095367432
+            ],
+            "min": [
+                -7.900000095367432,
+                -7.900000095367432,
+                -7.900000095367432
+            ]
+        },
+        "Layer_0_mesh_accessor_0": {
+            "bufferView": "Layer_0_mesh_view_0",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 10242,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                1.0,
+                0.9999899864196777
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -0.9999899864196777
+            ]
+        },
+        "Layer_0_mesh_accessor_1": {
+            "bufferView": "Layer_0_mesh_view_1",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 61440,
+            "type": "SCALAR",
+            "max": [
+                10241.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    },
+    "buffers": {
+        "mars": {
+            "byteLength": 368688,
+            "type": "arraybuffer",
+            "uri": "mars.bin"
+        }
+    },
+    "bufferViews": {
+        "Layer_0_mesh_view": {
+            "buffer": "mars",
+            "byteOffset": 0,
+            "byteLength": 122904,
+            "target": 34962
+        },
+        "Layer_0_mesh_view_0": {
+            "buffer": "mars",
+            "byteOffset": 122904,
+            "byteLength": 122904,
+            "target": 34962
+        },
+        "Layer_0_mesh_view_1": {
+            "buffer": "mars",
+            "byteOffset": 245808,
+            "byteLength": 122880,
+            "target": 34963
+        }
+    },
+    "images": {
+        "image": {
+            "uri": "C:/Documents and Settings/Administrator/Desktop/Mars-New/Mars8k-modified.jpg"
+        }
+    },
+    "materials": {
+        "mars_surface_norm": {
+            "values": {
+                "ambient": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "diffuse": "texture",
+                "specular": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "emission": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "shininess": 0.0
+            }
+        }
+    },
+    "meshes": {
+        "Layer_0_mesh": {
+            "name": "",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": "mars_surface_norm",
+                    "indices": "Layer_0_mesh_accessor_1",
+                    "attributes": {
+                        "POSITION": "Layer_0_mesh_accessor",
+                        "NORMAL": "Layer_0_mesh_accessor_0"
+                    }
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "mars-sample.obj": {
+            "children": [
+                "Layer_0"
+            ]
+        },
+        "Layer_0": {
+            "meshes": [
+                "Layer_0_mesh"
+            ]
+        }
+    },
+    "samplers": {
+        "sampler": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9729
+        }
+    },
+    "scenes": {
+        "defaultScene": {
+            "nodes": [
+                "mars-sample.obj"
+            ]
+        }
+    },
+    "textures": {
+        "texture": {
+            "source": "image",
+            "sampler": "sampler"
+        }
+    },
+    "scene": "defaultScene"
+}

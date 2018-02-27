@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+  <head>
+      <title> Map View Web Edition </title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js" crossorigin="anonymous"></script>
+      <script src="js/GLTFLoader.js"></script>
+      <script src="js/decimal.min.js"></script>
+      <script src="js/OrbitControls.js"></script>
+      <script src="js/three-text2d.js"></script>
+      <script src="js/Detector.js"></script>
+      <script src="js/mapviewgl.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,700,700i" rel="stylesheet">
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link href="styles/styles.css" rel="stylesheet">
+      <link href="styles/ansi.css" rel="stylesheet">
+      <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+      <link rel="manifest" href="/assets/icons/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js" crossorigin="anonymous"></script>
+      <script src="js/GUI.Utils.js"></script>
+      <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-80748037-1', 'auto');
+		  ga('send', 'pageview');
+
+      </script>
+
+  </head>
+  <body>
+      	<div id="container"></div>
+    <div class="menu-button" id="hotdog">     &#9776;      </div>
+      	<div id="controls" class="wvg-controls active">
+    		  	<div id="wrapper">
+    	      		<ul class="wvg-navbar">
+    				          <li class="wvg-tablink wvg-tab-active" onclick="openTab(event,'Find');">Find</li>
+                    <!--  <li class="wvg-tablink" onclick="openTab(event,'Plan');">Plan</li>
+    				          <li class="wvg-tablink" onclick="openTab(event,'Intel');">Intel</li>
+                      <li class="wvg-tablink" onclick="openTab(event,'Info');">Info</li> -->
+    			      </ul>
+    		  <div class="wvg-tools wvg-first" id="Find">
+    				<span class="tool-header"> Find Object By Name </span>
+    				<span>
+              <select id="findbyselect">
+    					       <option value=''></option>
+    				  </select> <br />
+          	   <input type="checkbox" name="objtype" id="cbp" value="planets" checked><label for="cbp"> Planets</label> <input type="checkbox" name="objtype" id="cbs" value="stations" > <label for="cbs">Stations</label>
+    			     <button id="submitfindbyname" class="btn">Find</button>
+
+
+            </span>
+            <span>
+              <label class="tool-header">Target Data</label>
+              <p id="findbydata"> </p>
+            </span>
+            <span class="toolsep"></span>
+    <!--        <span class="tool-header"> Find by Coordinate</span>
+            <span>
+               <input type="text" class="rpcoord" id="fbc-x" placeholder="x" value="" style="width:3vw;">
+               <input type="text" class="rpcoord" id="fbc-y" placeholder="y" value="" style="width:3vw;">
+               <input type="text" class="rpcoord" id="fbc-z" placeholder="z" value="" style="width:3vw;">
+               <select id="fbc_frame">
+     					       <option val="UNK"> Unknown </option>
+                     <option val="GALAC"> Galactic </option>
+     				  </select>
+              <button id="submitfindcoord" class="btn">Find</button>
+              <select multiple="multiple" id="fbc_output" class="select-fbc-output">
+                <option></option>
+              </select>
+              <button id="submitfbcclear" class="btn">Clear</button>
+            </span> -->
+    		  </div>
+          <div class="wvg-tools" id="Plan">
+            <span class="tool-header"> Route Planner </span>
+            <span>
+                <label for="pointa">Point A</label>
+                <select id="pointa" name="Point_A">
+
+                </select>
+                <br />
+                <label for="pointb"> Point B </label>
+                <select id="pointb" name="Point_B">
+
+                </select>
+                <button id="swapab" class="btn">Swap</button>
+                <br />    <br />
+                <label for="speed">Travel Speed</label>    <br />
+                <input type="text" id="speed" value="14">    <br />
+                <select id="speedunit" name="Speed Unit">
+                   <option value='WF'>Warp Factor</option>
+                   <option value='PC/s'>PC/s</option>
+                   <option value='SU/s'>SU/s</option>
+                </select>
+                <br />
+                <button id="calctnd" class="btn">Calculate</button>
+            </span>
+            <br />
+            <br />
+            <select multiple="multiple" id="route_output" class="select-route-map">
+              <option> No route calculated </option>
+            </select>
+
+            <span class="calc_data"><br />
+              From: <b id="cal_start">Empty</b> <br />
+              To: <b id="cal_end">Empty</b><br />
+              Distance: <b id="cal_dist">Unknown</b><br />
+              ETA @ <b id="cal_speed">Unknown</b> : <b id="cal_eta">Unknown</b>
+            </span>
+          </div>
+          <div class="wvg-tools" id="Intel">
+              <span class="tool-header"> Route Prediction </span>
+              <span>
+                <input type="text" class="rpcoord" id="x" placeholder="x" style="width:3vw;">
+                <input type="text" class="rpcoord" id="y" placeholder="y" style="width:3vw;">
+                <input type="text" class="rpcoord" id="z" placeholder="z" style="width:3vw;"><br /><br />
+                <input type="text" class="rpcoord" id="azmuth" value="azmuth" style="width:3.1vw;"><label for='inclination'> mark </label>
+                <input type="text" class="rpcoord" id="inclination" value="inclination" style="width:3.5vw;"> <br /><br />
+
+                <label for="intel_frame">Coordinate Frame</label>
+                <select id="intel_frame">
+                  <option val="Galactic"> Galactic </option>
+                </select>
+              </span>
+              <span>
+                Perdicted Destination: <b id="intel_predicted"></b>
+
+                <button id="calcpredict" class="btn">Predict</button>
+              </span>
+
+          </div>
+    			<div class="wvg-tools" id="Info">
+            <span id="changelog_container">
+
+            </span>
+
+            <div id="info_footer">
+              <span class="toolsep"></span>
+              <span> This tool was designed by Frey @ ATSMUSH. It is based on MapView for ATS with data used from the Navcomp MUSHClient plugin with permission. </span>
+              <span><a href="https://goo.gl/7uDYCW">Issue Tracker</a>  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>  <a href="https://github.com/roblevesque/webglmapview">Project Page</a></span>
+            </div>
+    			</div>
+    		</div>
+    		<div class="reset-container"><span class="reset-button">  Reset </span></div>
+
+      </div>
+  <!--    <div id="client">
+	      <div id="client-bar">
+		      <span class="client-bar-control-container handle">
+			      <a href="#" id="client-bar-control"><i id="client-ico-up" class="fa fa-chevron-up" aria-hidden="true"></i><i id="client-ico-down" class="fa fa-chevron-down hidden" aria-hidden="true"></i><b id="client-tab-desc">Client</b></a>
+		      </span>
+	      </div>
+        <div id="client-term-container" class="hidden vertical-resize">
+          <div id="client-term-resize" class="handle ui-resizable-handle ui-resizable-n" >
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+          </div>
+          <form id="client-term" onsubmit="return false;">
+            <div id="client-term-output" class="ansi-37 ansi-40"></div>
+            <div id="client-term-prompt" class="ansi-37 ansi-40"></div>
+            <textarea id="client-term-entry" autocomplete="on" autofocus></textarea>
+            <button id="client-login">(Re)Connect</button>
+          </form>
+        </div>
+      </div>
+      <script src="js/wsclient.js"></script>
+      <script src="js/local.js"></script> -->
+  </body>
+
+</html>

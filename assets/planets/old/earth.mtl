@@ -1,0 +1,12 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v4.1.0)
+
+newmtl mercurius
+Kd 1 1 1
+Ks 0.02999999932944775 0.02999999932944775 0.02999999932944775
+Ke 0.07999999821186066 0.07999999821186066 0.07999999821186066
+Ns 280
+illum 2
+map_Kd textures/mercurius_diffuse.png
+map_Ks textures/mercurius_specularGlossiness.png
+

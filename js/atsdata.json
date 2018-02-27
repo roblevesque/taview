@@ -1,0 +1,118 @@
+{
+	"ATS_Navcomp_DB": {
+	"version": 2.11,
+	"gates": [
+		 { "name":"Sherman's Planet / USB Galadriel"},
+		 { "name":"Dark Phoenix City / USB Milliways"},
+		 { "name":"New Risa / USB Lothlorien"},
+		 { "name":"Lily Yo II / USB Celestine Gate"},
+		 { "name":"Kildare V / Kildare IX / Kildare XI / USB Stormwatch"}
+	],
+	"wormholes": [
+		{"name": "Magna Roma <-> Usho Prime", "enda": {"location":  "Magna Roma", "displayname": "Transwarp Gate MR-01", "oppsiteexit": "Transwarp Exit U-02" }, "endb": {"location": "Usho Prime", "displayname": "Transwarp Gate U-02", "oppsiteexit": "Transwarp Exit M-01"}},
+		{"name": "Bajor <-> Idran X", "enda": {"location":  "Bajor/Jeraddo", "displayname": "Wormhole BQ Entrance", "oppsiteexit": "Wormhole GQ Exit" }, "endb": {"location": "Idran X", "displayname": "Wormhole GQ Entrance", "oppsiteexit": "Wormhole BQ Exit"}}
+		],
+	"empires": [
+{
+"name": "Federation",
+	"desc":"Founded in 2161 on Earth, the United Federation of planets spans thousands of\nlightyears and 150+ member planets.\nTraditionally lead by a President, the Federation has been without one since\n SD 86621.568754 (2409) when President Armitage was assassinated.\n\nSince then, it has been loosely run by the ellusive Daystrom Institute (rumor)",
+	"government":"Federation", "leader":"Unknown (assassinated?)",
+	"homeworld":"Earth", "hwx":9174.044174, "hwy": 61.800000, "hwz": 0.000000,
+	"color": "#0000FF",
+	"planets":[
+			{"name":"Trill","x":-264143487473366430000,"y":-414899987671576770,"z":1381798156446889500},
+			{"name":"Earth","x":-264893804503921900000,"y":-483261400064476.1,"z":614720060996948000},
+			{"name":"Vulcan","x":-264756671621928780000,"y":-68115804515136000,"z":594121183826464000},
+			{"name":"Epsillon","x":-264547375724732300000,"y":-857168162209757000,"z":633621117806769500},
+			{"name":"Bajor","x":-267077473644690570000,"y":-1768783662497204500,"z":614720061558786600},
+			{"name":"Risa","x":-264321984319891960000,"y":-342147561649228800,"z":1169593775135850000},
+			{"name":"Mercury","x":-264893804547720250000,"y":-483366630225738.94,"z":614720060997010300},
+			{"name":"Venus","x":-264893804597308720000,"y":-483353297216412.06,"z":614720060997010300},
+			{"name":"Mars","x":-264893804309900430000,"y":-483326568017596.06,"z":614720060997010300},
+			{"name":"Jupiter","x":-264893803816032600000,"y":-483116933564730,"z":614720060997010300},
+			{"name":"Saturn","x":-264893803153088200000,"y":-484067771223539.75,"z":614719889103108600},
+			{"name":"Uranus","x":-264893801951437550000,"y":-484653855403194.44,"z":614719724945204600},
+			{"name":"Neptune","x":-264893800321205270000,"y":-485448972812273.3,"z":614719502238617600},
+			{"name":"Deneva","x":-265256129065589440000,"y":282595710761161860,"z":614720060996948000},
+			{"name":"New Bajor","x":229283140301613370000,"y":-808595448232175600,"z":-201086358009617020}
+	],
+	"stars": [
+		{"name":"Sol","x":-264893804503922280000,"y":-483408925412251.44,"z":614720060997010300},
+		{"name":"Trillius","x":-264143487486307600000,"y":-414900009337789800,"z":1381798300577738000},
+		{"name":"Eridani","x":-264756671593222140000,"y":-68115727207584670,"z":594121285154763100},
+		{"name":"B'hava'el","x":-267077473755701900000,"y":-1768783752103683300,"z":614720070876559900},
+		{"name":"Kappa Fornacis","x":-265256129143170040000,"y":282595639913972400,"z":614720164639680500}
+	],
+	"stations":[
+		{"name":"Utopia Planitia","x":-264893804309929560000,"y":-483326558547980.9,"z":614720060997010300}
+	]},
+{
+"name": "Klingon",
+	"desc":"Founded in the 9th century by QeylIS (Kahless) the Unforgettable the Empire\nspans several thousand light years around it's homeworld of Qo'noS. In ancient\ntimes the Empire was ran as a dictatorship by the Emperor, however, in this age\nit is governed by the High Council and the Qang (Chancellor). The role of\nEmperor is retained as more of a religious figurehead, rather than\ndirect government control.\n\nThe Empire employs advancedphase-disruptor technology and cloaking devices in\nevery ship of the Imperial Navy, giving them an edge in any combat situation.\n",
+	"government":"Feudal Monarchy",
+	"leader":"Q'var Qang",
+	"homeworld":"Qo'noS", "hwx": -9519.444174, "hwy": 48.600000, "hwz": -87.900000,
+	"color": "#FF0000",
+	"planets":[
+			{"name":"Qo'nos","x":-262293150025298000000,"y":3079401995788440000,"z":1296092391468560000},
+			{"name":"Narendra III","x":-264300970633469760000,"y":2576985875770337300,"z":1003399629875853000},
+			{"name":"rura pente'","x":-263214037858728300000,"y":2004875181240912000,"z":1387481096685374500}
+
+	],
+	"stars": [
+		{"name":"toqar","x":-263214037860079000000,"y":2004969787504960800,"z":1387481096725374500},
+		{"name":"juHHov","x":-262293150025297500000,"y":3079402145788440000,"z":1296092391468511200},
+		{"name":"Narendra","x":-264300970729015350000,"y":2576985795604431400,"z":1003399754601786800},
+		{"name":"qolaS","x":-263214037860089000000,"y":2004969787504960800,"z":1387481096085374500},
+		{"name":"ogatlh","x":-263214037860069000000,"y":2004969787504960800,"z":1387481096685374500}
+	],
+	"stations":[]
+},
+{
+"name": "Romulan",
+	"desc":"Describe the empire here",
+	"color": "#00ff00",
+	"planets":[
+			{"name":"ch'Rihan","x":-267173836629375600000,"y":2562857144881991700,"z":584660655421584000},
+			{"name":"ch'Havran","x":-267173836629345300000,"y":2562857144875961000,"z":584660655442548900}
+	],
+	"stars":[
+		{"name":"Eisn","x":-267173836518658570000,"y":2562857043328904700,"z":584660653868378200}
+	],
+	"stations":[
+		{"name":"Zulu Delta 5","x":-266081933329312870000,"y":1127405002413135100,"z":585406283454977800}
+
+	]},
+	{
+"name": "System",
+	"desc":"Describe the empire here",
+	"color": "#fffffff",
+	"planets":[
+		{"name": "Kuree Prime", "x":-264204942452468202045.218750, "y":813122059892198288.859375,	"z":794938820733323871.984375 },
+		{"name": "Nimbus III",		"x":-264661304377044636749.632813,	"y":2369686394742125988.048828, "z":812169014942629834.453125},
+		{"name": "Parlixt Planet",	"x":-264178339499715101246.544922,	"y":193942205521113252.615723, "z":1169593775134720452.750000}
+
+	],
+	"stars": [{"name":"Parl Prime","x":-264178339349460600000,"y":193942044392905280,"z":1169593662878609200}],
+	"stations": [],
+	"misc_objects": [
+		{"name":"Asteroid - 2305","x":-264547375724863780000,"y":-857168162278767700,"z":633621117714502500},
+		{"name":"Asteroid - 2863","x":-265608450349797740000,"y":108361105706056320,"z":614720060851482900},
+		{"name":"Asteroid - 2919","x":-265608450349911050000,"y":108361105982015090,"z":614720060596308700},
+		{"name":"Asteroid - 2969","x":-264547375724851430000,"y":-857168162262962000,"z":633621117726554400},
+		{"name":"Asteroid - 2971","x":-264547375724660260000,"y":-857168162137817900,"z":633621117923567500},
+		{"name":"Asteroid - 3044","x":-265608450349900200000,"y":108361105792039490,"z":614720060971926300},
+		{"name":"Asteroid - 3062","x":-265608450349913000000,"y":108361105802787380,"z":614720060986981800},
+		{"name":"Asteroid - 3346","x":-264547385724731950000,"y":-857178162209984500,"z":633601117806774100},
+		{"name":"Asteroid - 3549","x":-265608450349912360000,"y":108361105783928780,"z":614720060999236100},
+		{"name":"Asteroid - 3616","x":-265608450349911050000,"y":108361105976015090,"z":614720060599508700},
+		{"name":"Asteroid - 3656","x":-265608450349911050000,"y":108361105978115090,"z":614720060598308700},
+		{"name":"Asteroid - 3663","x":-265608450349910430000,"y":108361105782815090,"z":614720060997008800},
+		{"name":"Asteroid - 3667","x":-265608450349910430000,"y":108361105782015090,"z":614720060996308700},
+		{"name":"Asteroid - 4614","x":-264547375724733900000,"y":-857168162111016700,"z":633621118027556500},
+		{"name":"BJ Wormhole","x":-267077474024482830000,"y":-1768783691700645600,"z":614719752434820200},
+		{"name":"GQ Wormhole","x":229229792939382050000,"y":-983086807675361700,"z":-217049904922232400},
+		{"name":"Azure Nebula Wreckage","x":-264574157737476700000,"y":1673213518148295000,"z":903965435721038500}]
+}
+
+]}}

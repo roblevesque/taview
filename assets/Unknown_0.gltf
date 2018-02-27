@@ -1,0 +1,184 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 3012, 
+            "max" : [
+                1926
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 1927, 
+            "max" : [
+                1644.166748046875, 
+                334.2200012207031, 
+                1141.615478515625
+            ], 
+            "min" : [
+                -413.7372131347656, 
+                -245.36599731445312, 
+                118.64569854736328
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 1927, 
+            "max" : [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "min" : [
+                -1.0, 
+                -1.0, 
+                -1.0
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 3, 
+            "componentType" : 5126, 
+            "count" : 1927, 
+            "max" : [
+                0.9904000163078308, 
+                0.989500000141561
+            ], 
+            "min" : [
+                0.006399999838322401, 
+                0.007200002670288086
+            ], 
+            "type" : "VEC2"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 6024, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 23124, 
+            "byteOffset" : 6024, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 23124, 
+            "byteOffset" : 29148, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 15416, 
+            "byteOffset" : 52272, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 67688, 
+            "uri" : "Unknown_0.bin"
+        }
+    ], 
+    "images" : [
+        {
+            "uri" : "Trident_UV_Dekol_Color.png"
+        }
+    ], 
+    "materials" : [
+        {
+            "alphaMode" : "BLEND", 
+            "name" : "Trident_Material.001", 
+            "occlusionTexture" : {
+                "index" : 0
+            }, 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.5879999995231628, 
+                    0.5879999995231628, 
+                    0.5879999995231628, 
+                    1.0
+                ], 
+                "baseColorTexture" : {
+                    "index" : 0
+                }, 
+                "metallicFactor" : 0.0
+            }
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "Trident_Space_Fighter", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1, 
+                        "TEXCOORD_0" : 3
+                    }, 
+                    "indices" : 0, 
+                    "material" : 0
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "Trident_Space_Fighter", 
+            "rotation" : [
+                4.220357396889085e-08, 
+                -0.7061538696289062, 
+                4.209005410871214e-08, 
+                0.7080584168434143
+            ], 
+            "scale" : [
+                0.003921099007129669, 
+                0.003921099007129669, 
+                0.003921099007129669
+            ], 
+            "translation" : [
+                2.655423879623413, 
+                1.0535008907318115, 
+                -1.608343482017517
+            ]
+        }
+    ], 
+    "samplers" : [
+        {}
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ], 
+    "textures" : [
+        {
+            "sampler" : 0, 
+            "source" : 0
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 0
+        }
+    ]
+}

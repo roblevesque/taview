@@ -1,0 +1,221 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 23283, 
+            "max" : [
+                6672
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 6673, 
+            "max" : [
+                21.581100463867188, 
+                7.875800132751465, 
+                47.55950164794922
+            ], 
+            "min" : [
+                -21.581100463867188, 
+                -7.517000198364258, 
+                -33.93939971923828
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 6673, 
+            "max" : [
+                1.0, 
+                1.0, 
+                1.0
+            ], 
+            "min" : [
+                -1.0, 
+                -1.0, 
+                -1.0
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 3, 
+            "componentType" : 5126, 
+            "count" : 6673, 
+            "max" : [
+                1.0, 
+                1.0, 
+                0.9993187189102173, 
+                1.0
+            ], 
+            "min" : [
+                -1.0, 
+                -1.0, 
+                -1.0, 
+                -1.0
+            ], 
+            "type" : "VEC4"
+        }, 
+        {
+            "bufferView" : 4, 
+            "componentType" : 5126, 
+            "count" : 6673, 
+            "max" : [
+                0.9995999932289124, 
+                0.9918999997898936
+            ], 
+            "min" : [
+                0.001500000013038516, 
+                0.005299985408782959
+            ], 
+            "type" : "VEC2"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 46566, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 80076, 
+            "byteOffset" : 46568, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 80076, 
+            "byteOffset" : 126644, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 106768, 
+            "byteOffset" : 206720, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 53384, 
+            "byteOffset" : 313488, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 366872, 
+            "uri" : "Unknown_3.bin"
+        }
+    ], 
+    "images" : [
+        {
+            "uri" : "Luminaris Diffuse.png"
+        }, 
+        {
+            "uri" : "Luminaris Normal.png"
+        }, 
+        {
+            "uri" : "Luminaris Emissive.png"
+        }
+    ], 
+    "materials" : [
+        {
+            "emissiveTexture" : {
+                "index" : 2
+            }, 
+            "name" : "Material.002", 
+            "normalTexture" : {
+                "index" : 1
+            }, 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.6400000190734865, 
+                    0.6400000190734865, 
+                    0.6400000190734865, 
+                    1.0
+                ], 
+                "baseColorTexture" : {
+                    "index" : 0
+                }, 
+                "metallicFactor" : 0.0
+            }
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "Luminaris_Ingame.001", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1, 
+                        "TANGENT" : 3, 
+                        "TEXCOORD_0" : 4
+                    }, 
+                    "indices" : 0, 
+                    "material" : 0
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "Luminaris_Ingame.001", 
+            "rotation" : [
+                0.001340805902145803, 
+                1.10873350395252e-16, 
+                1.108733437778071e-16, 
+                0.9999991059303284
+            ], 
+            "scale" : [
+                0.09979049116373062, 
+                0.09979048371315002, 
+                0.09979048371315002
+            ], 
+            "translation" : [
+                5.937272451461695e-09, 
+                1.2910544872283936, 
+                -0.41313743591308594
+            ]
+        }
+    ], 
+    "samplers" : [
+        {}
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ], 
+    "textures" : [
+        {
+            "sampler" : 0, 
+            "source" : 0
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 1
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 2
+        }
+    ]
+}

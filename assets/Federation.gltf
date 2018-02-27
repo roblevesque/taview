@@ -1,0 +1,206 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 16116, 
+            "max" : [
+                3921
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 3922, 
+            "max" : [
+                2.27112078666687, 
+                2.382736921310425, 
+                4.914083003997803
+            ], 
+            "min" : [
+                -2.27112078666687, 
+                0.06844252347946167, 
+                -4.7421555519104
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 3922, 
+            "max" : [
+                0.999969482421875, 
+                1.0, 
+                1.0
+            ], 
+            "min" : [
+                -0.999969482421875, 
+                -1.0, 
+                -0.999847412109375
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 3, 
+            "componentType" : 5126, 
+            "count" : 3922, 
+            "max" : [
+                1.0, 
+                0.9999955892562866, 
+                0.9999999403953552, 
+                1.0
+            ], 
+            "min" : [
+                -0.9999920129776001, 
+                -0.9999527335166931, 
+                -1.0, 
+                -1.0
+            ], 
+            "type" : "VEC4"
+        }, 
+        {
+            "bufferView" : 4, 
+            "componentType" : 5126, 
+            "count" : 3922, 
+            "max" : [
+                0.8493443727493286, 
+                0.9974597624968737
+            ], 
+            "min" : [
+                0.0024955826811492443, 
+                0.1388036608695984
+            ], 
+            "type" : "VEC2"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 32232, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 47064, 
+            "byteOffset" : 32232, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 47064, 
+            "byteOffset" : 79296, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 62752, 
+            "byteOffset" : 126360, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 31376, 
+            "byteOffset" : 189112, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 220488, 
+            "uri" : "Federation.bin"
+        }
+    ], 
+    "images" : [
+        {
+            "uri" : "UV Textur.png"
+        }, 
+        {
+            "uri" : "NormalMap.png"
+        }
+    ], 
+    "materials" : [
+        {
+            "name" : "Material", 
+            "normalTexture" : {
+                "index" : 1
+            }, 
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929, 
+                    0.800000011920929, 
+                    0.800000011920929, 
+                    1.0
+                ], 
+                "baseColorTexture" : {
+                    "index" : 0
+                }, 
+                "metallicFactor" : 0.0
+            }
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "Cylinder.003", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1, 
+                        "TANGENT" : 3, 
+                        "TEXCOORD_0" : 4
+                    }, 
+                    "indices" : 0, 
+                    "material" : 0
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "Enterprise", 
+            "rotation" : [
+                -5.999832808356587e-08, 
+                -7.557991210660475e-08, 
+                -0.005225277040153742, 
+                0.9999863505363464
+            ], 
+            "translation" : [
+                0.1672024130821228, 
+                -2.9319676286831964e-07, 
+                0.07165813446044922
+            ]
+        }
+    ], 
+    "samplers" : [
+        {}
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ], 
+    "textures" : [
+        {
+            "sampler" : 0, 
+            "source" : 0
+        }, 
+        {
+            "sampler" : 0, 
+            "source" : 1
+        }
+    ]
+}
