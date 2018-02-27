@@ -422,7 +422,7 @@ function drawPlanet(name = "Unknown Planet", center, model = "assets/planets/ear
 
 }
 
-function drawStar(name = "Unknown Star", center, model = "assets/planets/sun.gltf" ) {  // Load Main model
+function drawStar(name = "Unknown Star", center, model = "/taview/assets/planets/sun.gltf" ) {  // Load Main model
 	var Text2D = THREE_Text.Text2D;
 	var SpriteText2D = THREE_Text.SpriteText2D;
 	var textAlign = THREE_Text.textAlign
