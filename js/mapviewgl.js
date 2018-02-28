@@ -90,19 +90,19 @@ function init() {
 		  for (var key2 in area['borders']) {
 					var border = area['borders'][key2];
 
-				  b_geometry = new THREE.SphereGeometry( border.radius, 10, 10 );
+				  b_geometry = new THREE.SphereGeometry( makesane( border.radius ), 10, 10 );
 				  b_material = new THREE.MeshBasicMaterial( { color: area.color, wireframe: true} );
 					b_mesh = new THREE.Mesh( b_geometry, b_material );b_mesh
-				  b_mesh.position.x = border.x;
-				  b_mesh.position.y = border.y;
-				  b_mesh.position.z = border.z;
+				  b_mesh.position.x = makesane( border.x );
+				  b_mesh.position.y = makesane( border.y );
+				  b_mesh.position.z = makesane( border.z );
 				  b_mesh.name = escapeHTML( border.name );
 					scene.add( b_mesh );
-					if (border.radius > 10) {
+					if ( makesane( border.radius )  > 10) {
 						l_text = new Text2D(border.name, { align: textAlign.center,  font: '25px Arial', fillStyle: '#777' , antialias: false });
 						l_text.material.alphaTest = 0.5;
-						l_text.position.set(border.x,border.y,border.z);
-						l_text.scale.set(0.5,0.5,0.5);
+						l_text.position.set(makesane(border.x),makesane(border.y),makesane(border.z));
+						l_text.scale.set(50,50,50);
 						l_text.name = border.name + "_label";
 						scene.add(l_text);
 					}
@@ -268,8 +268,8 @@ function render () {
     objectlist.forEach (function(station) { var obj = scene.getObjectByName(escapeHTML(station)); obj.lookAt(camera.position)  }) ;
     objectlist = Object.keys(listobjects("planets"));
     objectlist.forEach (function(planet) { var obj = scene.getObjectByName(escapeHTML(planet + "_label")); obj.lookAt(camera.position)  }) ;
-    objectlist = Object.keys(listobjects("borders"));
-    objectlist.forEach (function(border) { var obj = scene.getObjectByName(border); if (obj != undefined) { obj.lookAt(camera.position)}  }) ;
+    //objectlist = Object.keys(listobjects("borders"));
+    //objectlist.forEach (function(border) { var obj = scene.getObjectByName(border); if (obj != undefined) { obj.lookAt(camera.position)}  }) ;
 		// Also make any misc things follow camera
 		misc_followers.forEach (function(follower) { var obj = scene.getObjectByName(escapeHTML(follower)); obj.lookAt(camera.position)  });
     renderer.render( scene, camera );
