@@ -126,10 +126,10 @@ function init() {
 			    planetGroup.position.y= makesane( planet.y );
 			    planetGroup.position.z= makesane( planet.z );
 			    p_mesh.name = escapeHTML(planet.name + "_mesh");
-					p_mesh.scale.set(0.75,0.75,0.75);
+					p_mesh.scale.set(0.2,0.25,0.25);
 			    var l_text = new Text2D(escapeHTML(planet.name), { align: textAlign.right,  font: '12px Arial', fillStyle: '#FFF' , antialias: false });
 			    l_text.material.alphaTest = 0.0;
-			    l_text.position.set(makesane( planet.x ) + 2 ,makesane( planet.y ) + 30, makesane( planet.z + 0 ) );
+			    l_text.position.set(makesane( planet.x ) + 10 ,makesane( planet.y ) + 15, makesane( planet.z + 0 ) );
 			    l_text.scale.set(1,1,1);
 					l_text.name = escapeHTML(planet.name + "_label");
 					planetGroup.name = planet.name;
@@ -148,6 +148,7 @@ function init() {
 				s_geometry.computeBoundingSphere();
 		    s_material = new THREE.MeshBasicMaterial( { color: area.color, wireframe: false} );
 		    s_mesh = new THREE.Mesh( s_geometry, s_material );
+				s_mesh.scale.set(2,2,2);
 		    s_mesh.position.x= makesane( base.x );
 		    s_mesh.position.y= makesane( base.y );
 		    s_mesh.position.z= makesane( base.z );
@@ -155,7 +156,7 @@ function init() {
 		    scene.add( s_mesh );
 		  	l_text = new Text2D(escapeHTML(base.name), { align: textAlign.left,  font: '12px Arial', fillStyle: '#ABABAB' , antialias: false });
 		    l_text.material.alphaTest = 0.0;
-		    l_text.position.set(makesane( base.x ),makesane( base.y )+50,makesane( base.z ) );
+		    l_text.position.set(makesane( base.x ),makesane( base.y )-5,makesane( base.z ) );
 				l_text.scale.set(1,1,1);
 				l_text.name = escapeHTML(base.name + "_label");
 		    scene.add(l_text);
