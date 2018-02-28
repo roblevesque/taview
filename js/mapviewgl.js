@@ -60,7 +60,7 @@ function init() {
 
 
     //    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1e7);
-    		camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1e15);
+    		camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1e25);
         controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.enableDamping = true;
 				controls.dampingFactor = 0.25;
@@ -268,8 +268,9 @@ function render () {
     objectlist.forEach (function(station) { var obj = scene.getObjectByName(escapeHTML(station)); obj.lookAt(camera.position)  }) ;
     objectlist = Object.keys(listobjects("planets"));
     objectlist.forEach (function(planet) { var obj = scene.getObjectByName(escapeHTML(planet + "_label")); obj.lookAt(camera.position)  }) ;
-    //objectlist = Object.keys(listobjects("borders"));
-    //objectlist.forEach (function(border) { var obj = scene.getObjectByName(border); if (obj != undefined) { obj.lookAt(camera.position)}  }) ;
+    objectlist = Object.keys(listobjects("borders"));
+    objectlist.forEach (function(border) { var obj = scene.getObjectByName(border+"_label"); if (obj != undefined) { distance = Math.max(50,0.001*camera.position.distanceTo(obj.position)); if(distance> 50) {obj.lookAt(camera.position)}; obj.scale.set(distance,distance,distance )}  }) ;
+
 		// Also make any misc things follow camera
 		misc_followers.forEach (function(follower) { var obj = scene.getObjectByName(escapeHTML(follower)); obj.lookAt(camera.position)  });
     renderer.render( scene, camera );
