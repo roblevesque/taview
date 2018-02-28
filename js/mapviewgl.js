@@ -102,7 +102,7 @@ function init() {
 						l_text = new Text2D(border.name, { align: textAlign.center,  font: '25px Arial', fillStyle: '#777' , antialias: false });
 						l_text.material.alphaTest = 0.5;
 						l_text.position.set(border.x,border.y,border.z);
-						l_text.scale.set(0.75,0.75,0.75);
+						l_text.scale.set(0.5,0.5,0.5);
 						l_text.name = border.name + "_label";
 						scene.add(l_text);
 					}
@@ -126,11 +126,11 @@ function init() {
 			    planetGroup.position.y= makesane( planet.y );
 			    planetGroup.position.z= makesane( planet.z );
 			    p_mesh.name = escapeHTML(planet.name + "_mesh");
-					p_mesh.scale.set(1,1,1);
+					p_mesh.scale.set(0.75,0.75,0.75);
 			    var l_text = new Text2D(escapeHTML(planet.name), { align: textAlign.right,  font: '12px Arial', fillStyle: '#FFF' , antialias: false });
 			    l_text.material.alphaTest = 0.0;
-			    l_text.position.set(makesane( planet.x ) + 10 ,makesane( planet.y ) + 10, makesane( planet.z + 0 ) );
-			    l_text.scale.set(5.0,5.0,5.0);
+			    l_text.position.set(makesane( planet.x ) + 2 ,makesane( planet.y ) + 30, makesane( planet.z + 0 ) );
+			    l_text.scale.set(1,1,1);
 					l_text.name = escapeHTML(planet.name + "_label");
 					planetGroup.name = planet.name;
 			    scene.add( l_text );
@@ -156,7 +156,7 @@ function init() {
 		  	l_text = new Text2D(escapeHTML(base.name), { align: textAlign.left,  font: '12px Arial', fillStyle: '#ABABAB' , antialias: false });
 		    l_text.material.alphaTest = 0.0;
 		    l_text.position.set(makesane( base.x ),makesane( base.y )+50,makesane( base.z ) );
-				l_text.scale.set(2,2,2);
+				l_text.scale.set(1,1,1);
 				l_text.name = escapeHTML(base.name + "_label");
 		    scene.add(l_text);
 		  }
@@ -167,13 +167,14 @@ function init() {
 					var star = area.stars[key];
 					drawStar( star.name, new THREE.Vector3( makesane( parseFloat( star.x ) ), makesane( parseFloat( star.y ) ), makesane( parseFloat( star.z ) ) ) );
 			}
-
+			// Misc stuff
 			for (var key in area["misc_objects"]) {
 				var object = area.misc_objects[key];
 				s_geometry = new THREE.CylinderGeometry( 0.2, 0.6*3, 0.5*3, 4 );
 				s_geometry.computeBoundingSphere();
 				s_material = new THREE.MeshBasicMaterial( { color: area.color, wireframe: false} );
 				s_mesh = new THREE.Mesh( s_geometry, s_material );
+				s_mesh.scale.set(3,3,3);
 				s_mesh.position.x=makesane( object.x );
 				s_mesh.position.y=makesane( object.y );
 				s_mesh.position.z=makesane( object.z );
@@ -181,8 +182,8 @@ function init() {
 				scene.add( s_mesh );
 				l_text = new Text2D(escapeHTML(object.name), { align: textAlign.left,  font: '12px Arial', fillStyle: '#ABABAB' , antialias: false });
 				l_text.material.alphaTest = 0.0;
-				l_text.position.set(makesane( object.x ),makesane( object.y )-50,makesane( object.z ) );
-				l_text.scale.set(2,2,2);
+				l_text.position.set(makesane( object.x ),makesane( object.y )-10,makesane( object.z ) );
+				l_text.scale.set(1.5,1.5,1.5);
 				l_text.name = escapeHTML(object.name + "_label");
 				scene.add(l_text);
 			}
@@ -299,7 +300,7 @@ function zoomfocus(name) {
 				  controls.target.y = parseFloat( zoomto.y );
 				  controls.target.z = parseFloat( zoomto.z );
 					var focus = new THREE.Vector3( parseFloat( zoomto.x ), parseFloat( zoomto.y ), parseFloat( zoomto.z ) );
-					var vantage = new THREE.Vector3( parseFloat(500.0), parseFloat( 5000.0 ), parseFloat( 5000.0 ) );
+					var vantage = new THREE.Vector3( parseFloat(500.0), parseFloat( 500.0 ), parseFloat( 900.0 ) );
 					vantage.add( focus );
 					camera.position.set( parseFloat( vantage.x ), parseFloat( vantage.y ), parseFloat( vantage.z ) );
 				//	camera.lookAt( focus );
@@ -422,43 +423,29 @@ function drawPlanet(name = "Unknown Planet", center, model = "assets/planets/ear
 
 }
 
-function drawStar(name = "Unknown Star", center, model = "/taview/assets/planets/sun.gltf" ) {  // Load Main model
+function drawStar(name = "Unknown Star", center ) {  // Load Main model
+	var starGroup = new THREE.Group();
+	var p_geometry= new THREE.SphereGeometry( 10, 10, 10 );
+	var p_material = new THREE.MeshBasicMaterial( { color: "#ffff00", wireframe: false} );
+	var p_mesh =  new THREE.Mesh( p_geometry, p_material );
 	var Text2D = THREE_Text.Text2D;
 	var SpriteText2D = THREE_Text.SpriteText2D;
 	var textAlign = THREE_Text.textAlign
-	var loader = new THREE.GLTFLoader();
-	var starGroup = new THREE.Group();
-	var label = new Text2D(name, { align: textAlign.center,  font: '12px Arial', fillStyle: '#ABABAB', antialias: false });
-
-	loader.load( model, function(object) {
-		var model = object.scene;
-		starGroup.add(object.scene);
-		object.scene;
-		object.scenes;
-		object.scene.name = name + "_mesh";
-		object.scene.scale.set( 20, 20 , 20);
-	},
-	function (xhr) { console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); },
-	function ( error ) {console.log( 'An error happened: ' + error );}
-	);
-	var light = new THREE.PointLight( 0xffffff, 2, 1500 );
-	light.position.set( 10, 10, 25 );
-	light.name = name + "_light";
-	light.power = 50;
-	starGroup.add( light );
-	label.material.alphaTest = 0.0;
-	label.position.set( center.x + 100, center.y + 550, center.z +	 0 );
-	label.scale.set( 10, 10, 10 );
-	label.name = name + "_label";
-	// misc_followers.push( label.name );
-	// starGroup.add( label );
-	scene.add( label );
-	misc_followers.push( label.name );
+	starGroup.position.x= center.x;
+	starGroup.position.y= center.y;
+	starGroup.position.z= center.z;
+	p_mesh.name = escapeHTML(name + "_mesh");
+	p_mesh.scale.set(4,4,4);
+	var l_text = new Text2D(escapeHTML( name ), { align: textAlign.right,  font: '12px Arial', fillStyle: '#FFF' , antialias: false });
+	l_text.material.alphaTest = 0.0;
+	l_text.position.set(center.x + 5 ,center.y + 60, center.z );
+	l_text.scale.set(1,1,1);
+	l_text.name = escapeHTML(name + "_label");
 	starGroup.name = name;
-
-	starGroup.position.set( center.x, center.y, center.z );
+	scene.add( l_text );
+	starGroup.add( p_mesh );
+	misc_followers.push( l_text.name );
 	scene.add( starGroup );
-
 }
 
 
@@ -776,6 +763,6 @@ function findObjectInfo(name) {
 	}
 
 	function makesane(m) {
-
-		return parseFloat( m ) * 0.00000001;
+		//return m2ly( parseFloat( m ) );
+		return parseFloat( m ) * 0.000000001;
 	}
