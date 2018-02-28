@@ -54,6 +54,8 @@ function init() {
 				scene = new THREE.Scene();
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.sortObjects = false;
         document.body.appendChild( renderer.domElement );
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
@@ -208,25 +210,41 @@ window.onresize = function() {
 				render();
 
 } // End Init
-
-
+function getMousePos(evt) {
+    var rect = renderer.domElement.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left, // left offset
+      y: rect.top - evt.clientY //top offset
+    };
+}
 function onCanvasClick( event ) {
-
-				//event.preventDefault();
-
-				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
+							var vector = new THREE.Vector3;
+							event.preventDefault();
+							var mousePos = getMousePos(event);
+							mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    					mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+							vector.set( ( mousePos.x / window.innerWidth ) * 2 - 1,- ( mousePos.y / window.innerHeight ) * 2 + 1, 0.5 );
+							vector.unproject( camera );
+        			console.log(vector)
+							raycaster.ray.direction.set(0, -1, 0);
 							raycaster.setFromCamera( mouse, camera );
-							var intersects = raycaster.intersectObjects( scene.children );
+							raycaster.linePrecision = 50000;
 
+							var intersects = raycaster.intersectObjects( scene.children, false);
+							console.log(intersects)
 							if ( intersects.length > 0 ) {
-								if ( INTERSECTED != intersects[ 0 ].object ) {
+								console.log(intersects)
+								if ( intersects[ 0 ].object != undefined ) {
 
-									INTERSECTED = intersects[ 0 ].object;
-									// console.log( INTERSECTED.name );
+									INTERSECTED = intersects[ 0 ];
+
+										zoomfocus(INTERSECTED.object.name)
+
+
+
 									if (lastInputBox) {
 										document.getElementById(lastInputBox).value = INTERSECTED.name;
+
 									}
 
 								}
