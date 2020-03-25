@@ -67,6 +67,7 @@ function init() {
 				controls.enableDamping = true;
 				controls.dampingFactor = 0.25;
 				controls.enableZoom = true;
+				camera.far = 1000000000;
   		  controls.addEventListener( 'change', render );
 				document.addEventListener( 'mousedown', onCanvasClick, false );
 
