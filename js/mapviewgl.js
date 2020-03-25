@@ -238,7 +238,7 @@ function onCanvasClick( event ) {
 								if ( intersects[ 0 ].object != undefined ) {
 
 									INTERSECTED = intersects[ 0 ];
-
+										console.log(INTERSECTED.object.name)
 										zoomfocus(INTERSECTED.object.name)
 
 
