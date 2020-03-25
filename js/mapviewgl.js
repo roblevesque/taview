@@ -227,6 +227,7 @@ function onCanvasClick( event ) {
 							vector.set( ( mousePos.x / window.innerWidth ) * 2 - 1,- ( mousePos.y / window.innerHeight ) * 2 + 1, 0.5 );
 							vector.unproject( camera );
         			console.log(vector)
+				zoomfocus(vector)
 							raycaster.ray.direction.set(0, -1, 0);
 							raycaster.setFromCamera( mouse, camera );
 							raycaster.linePrecision = 50000;
