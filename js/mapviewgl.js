@@ -227,7 +227,7 @@ function onCanvasClick( event ) {
 							vector.set( ( mousePos.x / window.innerWidth ) * 2 - 1,- ( mousePos.y / window.innerHeight ) * 2 + 1, 0.5 );
 							vector.unproject( camera );
         			console.log(vector)
-				zoomfocus(vector)
+				zoomfocusv(vector)
 							raycaster.ray.direction.set(0, -1, 0);
 							raycaster.setFromCamera( mouse, camera );
 							raycaster.linePrecision = 50000;
@@ -312,7 +312,20 @@ function listobjects(type) {
 	return objects;
 }
 
-
+function zoomfocusv(zoomto) {
+	if (zoomto != null) {
+					controls.target.x = parseFloat( zoomto.x );
+				  controls.target.y = parseFloat( zoomto.y );
+				  controls.target.z = parseFloat( zoomto.z );
+					var focus = new THREE.Vector3( parseFloat( zoomto.x ), parseFloat( zoomto.y ), parseFloat( zoomto.z ) );
+					var vantage = new THREE.Vector3( parseFloat(500.0), parseFloat( 500.0 ), parseFloat( 900.0 ) );
+					vantage.add( focus );
+					camera.position.set( parseFloat( vantage.x ), parseFloat( vantage.y ), parseFloat( vantage.z ) );
+				//	camera.lookAt( focus );
+					camera.updateProjectionMatrix();
+					render();
+			}
+}
 function zoomfocus(name) {
 
 
